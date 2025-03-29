@@ -14,7 +14,7 @@ const users = [{ username: 'admin', password: 'password' }];
 
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
-    const user = users.find(u => u.username === username && u.password === password);
+    const user = users.find(userreq => userreq.username === username && userreq.password === password);
     if (user) {
         const token = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: '1h' });
         return res.json({ token });
@@ -37,7 +37,7 @@ app.get('/api/dashboard', authenticate, (req, res) => {
 });
 
 app.get('/api/map', authenticate, (req, res) => {
-    res.json({ center: [20.5937, 78.9629], zoom: 5 });
+    res.json({ 20.5937, 78.9629 });
 });
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+app.listen(3000, () => console.log('Server running on port 3000'));
