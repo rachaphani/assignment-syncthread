@@ -18,7 +18,7 @@ const MapView = () => {
             }
             try {
                 const config = { headers: { Authorization: `Bearer ${token}` } };
-                const response = await axios.get('http://localhost:5000/api/map', config);
+                const response = await axios.get('http://localhost:3000/api/map', config);
                 setMapData(response.data);
             } catch (error) {
                 console.error('Error fetching map data', error);
